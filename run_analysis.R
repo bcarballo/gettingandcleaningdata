@@ -2,18 +2,27 @@
 ##Peer Assessment
 
 ###1. Merges the training and the test sets to create one data set.
-  ###Loading test data
-  X_test<-read.table("X_test.txt",sep="")
-  y_test<-read.table("y_test.txt",sep="")
-  subject_test<-read.table("subject_test.txt",sep="")
-  test.data.set<-cbind(subject_test,X_test,y_test)
+  ###Getting and setting the working directory (file: test)
+  current.directory<-getwd()
+  test.directory<-paste(current.directory,"/test",sep="")
+  setwd(test.directory)
+    ###Loading test data
+    X_test<-read.table("X_test.txt",sep="")
+    y_test<-read.table("y_test.txt",sep="")
+    subject_test<-read.table("subject_test.txt",sep="")
+    test.data.set<-cbind(subject_test,X_test,y_test)
 
-  ###Loading train data
-  X_train<-read.table("X_train.txt",sep="")
-  y_train<-read.table("y_train.txt",sep="")
-  subject_train<-read.table("subject_train.txt",sep="")
-  train.data.set<-cbind(subject_train,X_train,y_train)
-  
+  ###Getting and setting the working directory (file: train)
+  train.directory<-paste(current.directory,"/train",sep="")
+  setwd(train.directory)
+    ###Loading train data
+    X_train<-read.table("X_train.txt",sep="")
+    y_train<-read.table("y_train.txt",sep="")
+    subject_train<-read.table("subject_train.txt",sep="")
+    train.data.set<-cbind(subject_train,X_train,y_train)
+    
+  ###Set as working directory the folder UCI HAR Dataset
+  setwd(current.directory)
   ###Loading features data
   features<-read.table("features.txt",sep="",stringsAsFactor=FALSE)
   
